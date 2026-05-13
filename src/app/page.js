@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const [showContent, setShowContent] = useState(false);
-  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Kp.+Nungku+Rt.13+Rw.05+Desa+Cilangkap+Lengkong+Sukabumi";
+  const [name, setName] = useState("");
+  const mapsUrl =
+    "https://www.google.com/maps/place/TRI-N+BRILINK/@-7.1062691,106.671375,17z/data=!3m1!4b1!4m6!3m5!1s0x2e6823350cdac9f3:0x1409a4af1156dfc1!8m2!3d-7.1062691!4d106.6739499!16s%2Fg%2F11nx1y1zhb?hl=id-ID&entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D";
 
   useEffect(() => {
     if (isOpen) {
@@ -13,6 +15,14 @@ export default function Page() {
       setShowContent(false);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const name = window.location.search.split("name=")[1] || "";
+    setName(name);
+    console.log(`Visitor accessed with path: ${name}`);
+  }, []);
+
+  const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg"];
 
   return (
     <>
@@ -37,6 +47,206 @@ export default function Page() {
           font-family: 'Cormorant Garamond', Georgia, serif;
           min-height: 100vh;
         }
+          /* ───────── PREWEDDING ───────── */
+
+.prewed-card {
+  background: linear-gradient(
+    160deg,
+    #1a2744 0%,
+    #243366 50%,
+    #1a2744 100%
+  );
+  border-radius: 24px;
+  padding: 28px 20px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 25px 70px rgba(26,39,68,0.35),
+    0 0 0 1px rgba(200,169,110,0.15);
+}
+
+/* decorative blur */
+.prewed-card::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: rgba(200,169,110,0.08);
+  border-radius: 50%;
+  top: -80px;
+  right: -80px;
+  filter: blur(10px);
+}
+
+.prewed-card::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 50%;
+  bottom: -60px;
+  left: -60px;
+}
+
+.prewed-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.prewed-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  margin-bottom: 8px;
+}
+
+.prewed-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: #f5eedd;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.prewed-divider {
+  color: #c8a96e;
+  letter-spacing: 8px;
+  font-size: 14px;
+}
+
+.prewed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.prewed-item {
+  position: relative;
+}
+
+.prewed-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  height: 240px;
+  background: #ddd;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* elegant border */
+.prewed-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.prewed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 1.2s ease,
+    filter 0.8s ease;
+  transform: scale(1);
+}
+
+/* overlay cinematic */
+.prewed-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(26,39,68,0.75),
+      transparent 45%
+    );
+  z-index: 1;
+}
+
+/* shine animation */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255,255,255,0.18);
+  transform: skewX(-25deg);
+  z-index: 2;
+  transition: 1s;
+}
+
+.prewed-frame:hover .shine-effect {
+  left: 150%;
+}
+
+.prewed-frame:hover .prewed-image {
+  transform: scale(1.12) rotate(2deg);
+  filter: brightness(1.05);
+}
+
+.prewed-number {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  z-index: 3;
+  letter-spacing: 0.15em;
+}
+
+/* floating animations */
+.float-up {
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+.float-down {
+  animation: floatDown 5s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.prewed-caption {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #e8d8bc;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
 
         .page-bg {
           min-height: 100vh;
@@ -608,11 +818,30 @@ export default function Page() {
               </div>
             </div>
 
-            <h1 className="couple-name">Nida & Mail</h1>
+            <h1 className="couple-name">Nida & Dede</h1>
             <p className="cover-date">05 Juli 2026</p>
 
             <p className="kepada-label">Kepada Yth Bapak/Ibu</p>
-            <div className="guest-box" />
+            <div
+              style={{
+                width: "72%",
+                minHeight: "50px",
+                border: "1.5px dashed var(--navy)",
+                borderRadius: "8px",
+                marginBottom: "10px",
+                background: "rgba(26,39,68,0.03)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "10px 14px",
+                textAlign: "center",
+                color: "var(--navy)",
+                fontSize: "22px",
+                fontWeight: 500,
+              }}
+            >
+              {name}
+            </div>
             <p className="sorry-note">Mohon maaf bila ada kesalahan penulisan nama/gelar</p>
 
             {/* Flower corners */}
@@ -711,6 +940,39 @@ export default function Page() {
             </div>
           </div>
 
+          {/* Photo Prewedding */}
+          <div className="prewed-card">
+            <div className="prewed-header">
+              <p className="prewed-label">Our Moments</p>
+              <h2 className="prewed-title">Photo Prewedding</h2>
+              <div className="prewed-divider">✦ ✦ ✦</div>
+            </div>
+
+            <div className="prewed-grid">
+              {prewedPhotos.map((src, idx) => (
+                <div key={idx} className={`prewed-item ${idx % 2 === 0 ? "float-up" : "float-down"}`}>
+                  <div className="prewed-frame">
+                    <img src={src} alt={`Prewedding ${idx + 1}`} className="prewed-image" />
+
+                    {/* overlay */}
+                    <div className="prewed-overlay" />
+
+                    {/* shine effect */}
+                    <div className="shine-effect" />
+
+                    {/* number */}
+                    <span className="prewed-number">0{idx + 1}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="prewed-caption">
+              “Every love story is beautiful,
+              <br />
+              but ours is our favorite.”
+            </p>
+          </div>
           {/* Location */}
           <div className="location-card">
             <div className="location-header">
@@ -725,14 +987,7 @@ export default function Page() {
                 📍 Buka Google Maps
               </a>
             </div>
-            <iframe
-              title="Lokasi Pernikahan"
-              src="https://www.google.com/maps?q=Kp.+Nungku+Desa+Cilangkap+Kecamatan+Lengkong+Sukabumi&output=embed"
-              className="map-embed"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <iframe title="Lokasi Pernikahan" src="https://maps.google.com/maps?q=-7.1062691,106.6739499&z=17&output=embed" className="map-embed" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
 
           {/* Closing */}
