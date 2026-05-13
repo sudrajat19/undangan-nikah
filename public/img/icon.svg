@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="90" fill="#1a2744" stroke="#c8a96e" stroke-width="6"></circle>
+
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(200,169,110,0.35)" stroke-width="2"></circle>
+
+  <!-- Text -->
+  <text x="50%" y="54%" text-anchor="middle" fill="#dfc08a" font-size="72" font-family="cursive" dominant-baseline="middle">
+    ND
+  </text>
+</svg>
