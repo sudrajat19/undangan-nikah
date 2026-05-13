@@ -259,6 +259,199 @@ export default function Page() {
           flex-direction: column;
           align-items: center;
         }
+          /* ───────── GIFT SECTION ───────── */
+
+.gift-card {
+  background:
+    linear-gradient(
+      160deg,
+      #fffdf7 0%,
+      #f7edd8 100%
+    );
+  border-radius: 24px;
+  padding: 28px 22px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(200,169,110,0.22);
+  box-shadow:
+    0 15px 45px rgba(26,39,68,0.08);
+}
+
+.gift-card::before {
+  content: '';
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(200,169,110,0.08);
+}
+
+.gift-header {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.gift-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  margin-bottom: 8px;
+}
+
+.gift-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: #1a2744;
+  margin-bottom: 10px;
+}
+
+.gift-divider {
+  color: #c8a96e;
+  letter-spacing: 8px;
+  margin-bottom: 18px;
+}
+
+.gift-description {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #666;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.bank-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow:
+    0 10px 25px rgba(26,39,68,0.06);
+  border: 1px solid rgba(200,169,110,0.15);
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-item:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 35px rgba(26,39,68,0.12);
+}
+
+.bank-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+  transform: skewX(-20deg);
+  transition: 1s;
+}
+
+.bank-item:hover::before {
+  left: 150%;
+}
+
+.bank-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      #1a2744,
+      #243366
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfc08a;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.bank-content {
+  flex: 1;
+}
+
+.bank-name {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 3px;
+  letter-spacing: 0.05em;
+}
+
+.bank-number {
+  font-size: 20px;
+  color: #1a2744;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.bank-owner {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+.copy-btn {
+  border: none;
+  background:
+    linear-gradient(
+      135deg,
+      #1a2744,
+      #243366
+    );
+  color: #dfc08a;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  transition: 0.3s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.05);
+}
+
+.gift-address {
+  margin-top: 22px;
+  background: rgba(26,39,68,0.03);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+}
+
+.gift-address-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #1a2744;
+  margin-bottom: 10px;
+}
+
+.gift-address-text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #666;
+  font-style: italic;
+}
 
         /* ─── COVER CARD ─── */
         .cover-card {
@@ -972,6 +1165,69 @@ export default function Page() {
               <br />
               but ours is our favorite.”
             </p>
+          </div>
+          {/* Wedding Gift Section */}
+          <div className="gift-card">
+            <div className="gift-header">
+              <p className="gift-label">Wedding Gift</p>
+              <h2 className="gift-title">Kirim Hadiah</h2>
+              <div className="gift-divider">✦ ✦ ✦</div>
+            </div>
+
+            <p className="gift-description">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah bentuk tanda kasih, Anda dapat mengirimkan hadiah melalui rekening berikut.</p>
+
+            {/* BANK ITEM */}
+            <div className="bank-item">
+              <div className="bank-logo">BCA</div>
+
+              <div className="bank-content">
+                <p className="bank-name">Bank Central Asia</p>
+                <h3 className="bank-number">0383131437</h3>
+                <p className="bank-owner">a.n. Dede Ismail Darurukmi</p>
+              </div>
+
+              <button
+                className="copy-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText("0383131437");
+                  alert("Nomor rekening berhasil disalin");
+                }}
+              >
+                Salin
+              </button>
+            </div>
+
+            {/* BANK ITEM */}
+            <div className="bank-item">
+              <div className="bank-logo">BRI</div>
+
+              <div className="bank-content">
+                <p className="bank-name">Bank Rakyat Indonesia</p>
+                <h3 className="bank-number">440501014280533</h3>
+                <p className="bank-owner">a.n. Nida Winarti </p>
+              </div>
+
+              <button
+                className="copy-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText("440501014280533");
+                  alert("Nomor rekening berhasil disalin");
+                }}
+              >
+                Salin
+              </button>
+            </div>
+
+            {/* ADDRESS */}
+            <div className="gift-address">
+              <p className="gift-address-label">📦 Kirim Kado</p>
+
+              <p className="gift-address-text">
+                Kp. Nungku Rt.13 Rw.05 Desa Cilangkap
+                <br />
+                Kec. Lengkong Kab. Sukabumi
+              </p>
+            </div>
           </div>
           {/* Location */}
           <div className="location-card">
