@@ -28,13 +28,13 @@
 /* HEADER CALENDAR */
 .calendar-header {
   display: flex;
-  border-bottom: 2px solid var(--red);
+  border-bottom: 2px solid var(--navy);
 }
 
 .day-box {
   flex: 1;
   text-align: center;
-  border-right: 2px solid var(--red);
+  border-right: 2px solid var(--navy);
   padding: 12px 10px 20px;
   position: relative;
 }
@@ -46,7 +46,7 @@
 .day-name {
   display: block;
   font-family: "Great Vibes", cursive;
-  color: #8f1400;
+  color: var(--navy);
   font-size: 20px;
   margin-bottom: 15px;
 }
@@ -55,7 +55,7 @@
   font-family: "Great Vibes", cursive;
   font-size: 80px;
   line-height: 1;
-  color: #8f1400;
+  color: var(--navy);
   margin: 0;
 }
 
@@ -65,7 +65,7 @@
 
 .dday {
   font-family: "Great Vibes", cursive;
-  color: #8f1400;
+  color: var(--navy);
   font-size: 24px;
   transform: rotate(-10deg);
   margin-top: 10px;
@@ -79,7 +79,7 @@
 
 .event-content h2 {
   font-family: "Great Vibes", cursive;
-  color: #8f1400;
+  color: var(--navy);
   font-size: 40px;
   line-height: 1.2;
   margin-bottom: 40px;
@@ -99,7 +99,7 @@
 .location-btn {
   display: inline-block;
   margin-top: 40px;
-  background: #8f1400;
+  background: var(--navy);
   color: #fff;
   text-decoration: none;
   padding: 16px 40px;
@@ -180,13 +180,13 @@ body {
 .prewed-title {
   font-family: "Great Vibes", cursive;
   font-size: 40px;
-  color: var(--red);
+  color: var(--navy);
   line-height: 1;
   margin-bottom: 10px;
 }
 
 .prewed-divider {
-  color: var(--red);
+  color: var(--navy);
   letter-spacing: 8px;
   font-size: 14px;
 }
@@ -312,7 +312,7 @@ body {
   text-align: center;
   font-size: 13px;
   line-height: 1.9;
-  color: var(--red);
+  color: var(--navy);
   font-style: italic;
   position: relative;
   z-index: 2;
@@ -359,7 +359,7 @@ body {
 .gift-label {
   font-family: "Great Vibes", cursive;
   font-size: 30px;
-  color: var(--red);
+  color: var(--navy);
   line-height: 1;
   margin-bottom: 10px;
 }
@@ -432,7 +432,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--red);
+  color: var(--navy);
   font-family: "Great Vibes", cursive;
   font-size: 15px;
   letter-spacing: 0.1em;
@@ -444,14 +444,14 @@ body {
 }
 
 .bank-name {
-  font-size: 11px;
+  font-size: 10px;
   color: #888;
   margin-bottom: 3px;
   letter-spacing: 0.05em;
 }
 
 .bank-number {
-  font-size: 20px;
+  font-size: 10px;
   color: #1a2744;
   margin-bottom: 4px;
   font-weight: 600;
@@ -466,7 +466,7 @@ body {
 .copy-btn {
   border: none;
   background: var(--mycolor);
-  color: var(--red);
+  color: var(--navy);
   padding: 10px 14px;
   border-radius: 12px;
   cursor: pointer;
@@ -571,7 +571,7 @@ body {
   left: 0;
   right: 0;
   height: 24px;
-  background: var(--red);
+  background: var(--navy);
   clip-path: polygon(
     0% 0%,
     2% 100%,
@@ -645,32 +645,84 @@ body {
   margin-bottom: 12px;
 }
 
-.portrait-frame {
-  width: 90px;
-  height: 110px;
-  border-radius: 50% / 55%;
-  border: 3px solid var(--mycolor);
-  background: linear-gradient(135deg, #e8d8bc, #d4c4a0);
+/* Container */
+.portraits-row {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.portrait-card {
   position: relative;
+  width: 180px;
+  padding: 10px;
+  border-radius: 28px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+/* Hover animation */
+.portrait-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Frame */
+.portrait-frame {
+  display: block;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(26, 39, 68, 0.18);
+  border-radius: 24px;
+  border: 4px solid rgba(255, 255, 255, 0.6);
 }
 
-.portrait-frame::before {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 50% / 55%;
-  border: 1px solid rgba(26, 39, 68, 0.3);
+/* Image */
+.portrait-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.portrait-emoji {
-  font-size: 48px;
-  line-height: 1;
-  margin-top: 8px;
+/* Zoom hover */
+.portrait-card:hover .portrait-img {
+  transform: scale(1.08);
+}
+
+/* Optional romantic accent */
+.bride {
+  transform: rotate(-2deg);
+}
+
+.groom {
+  transform: rotate(2deg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .portraits-row {
+    gap: 18px;
+  }
+
+  .portrait-card {
+    width: 150px;
+  }
+
+  .portrait-img {
+    height: 220px;
+  }
+
+  .portrait-name {
+    font-size: 1.1rem;
+  }
 }
 
 .couple-divider {
@@ -685,7 +737,7 @@ body {
 .couple-name {
   font-family: "Great Vibes", cursive;
   font-size: 40px;
-  color: var(--red);
+  color: var(--navy);
   text-align: center;
   line-height: 1.1;
   margin: 4px 0 6px;
@@ -697,17 +749,40 @@ body {
   gap: 12px;
 }
 .save-date {
-  height: 200px;
-  width: 140px;
-  color: var(--gold);
-  letter-spacing: 8px;
-  font-size: 14px;
-  transform: -rotate(180deg);
-  margin: 12px 0;
+  font-family: "Great Vibes", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.schedule-label {
+  font-family: "Great Vibes", cursive;
+  margin: 0;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--navy); /* biru */
+  line-height: 1;
+  letter-spacing: 4px;
+}
+/* dibuat sedikit miring seperti poster */
+.save {
+  transform: rotate(-6deg);
+  margin-left: -10px;
+}
+
+.the {
+  transform: rotate(3deg);
+  margin-right: -8px;
+}
+
+.date {
+  transform: rotate(-4deg);
+  margin-left: 15px;
 }
 .schedule-divider {
-  height: 300px;
-  width: 200px;
+  height: 280px;
+  width: 180px;
   color: var(--gold);
   border-radius: 12px;
   letter-spacing: 8px;
@@ -735,7 +810,7 @@ body {
 .guest-box {
   width: 72%;
   height: 50px;
-  border: 1.5px dashed var(--red);
+  border: 1.5px dashed var(--navy);
   border-radius: 8px;
   margin-bottom: 10px;
   background: rgba(26, 39, 68, 0.03);
@@ -789,7 +864,7 @@ body {
 .lace-bottom-stripe {
   width: 100%;
   height: 16px;
-  background: var(--red);
+  background: var(--navy);
   clip-path: polygon(
     0% 100%,
     2% 0%,
@@ -850,7 +925,7 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 2px solid var(--red);
+  border: 2px solid var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -861,7 +936,7 @@ body {
 .monogram-text {
   font-family: "Great Vibes", cursive;
   font-size: 22px;
-  color: var(--red);
+  color: var(--navy);
 }
 
 .quran-verse {
@@ -888,7 +963,7 @@ body {
   margin-top: 20px;
   padding: 14px 48px;
   background: var(--mycolor);
-  color: var(--red);
+  color: var(--navy);
   border: none;
   border-radius: 50px;
   font-family: "Great Vibes", cursive;
@@ -944,7 +1019,7 @@ body {
 
 .bismillah-text {
   font-size: 22px;
-  color: var(--red);
+  color: var(--navy);
   font-style: italic;
   margin-bottom: 12px;
   line-height: 1.6;
@@ -1059,7 +1134,7 @@ body {
   font-family: "Great Vibes", cursive;
   font-size: 11px;
   letter-spacing: 0.15em;
-  color: var(--red);
+  color: var(--navy);
   font-weight: 500;
 }
 
@@ -1152,12 +1227,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 12px 25%;
-  padding: 10px 22px;
-  background: var(--red);
+  margin: 12px 27%;
+  padding: 10px 10px;
+  background: var(--navy);
   color: var(--white);
   font-family: "Great Vibes", cursive;
-  font-size: 10px;
+  font-size: 8px;
   letter-spacing: 0.2em;
   text-decoration: none;
   transition: all 0.3s;
@@ -1166,21 +1241,21 @@ body {
 .closing-line {
   font-family: "Great Vibes", cursive;
   font-size: 20px;
-  color: var(--red);
+  color: var(--navy);
   line-height: 1.8;
   margin-bottom: 12px;
 }
 
 .closing-sub {
   font-size: 11px;
-  color: var(--red);
+  color: var(--navy);
   letter-spacing: 0.05em;
   font-style: italic;
 }
 
 .divider-ornament {
   text-align: center;
-  color: var(--red);
+  color: var(--navy);
   font-size: 18px;
   margin: 4px 0 12px;
   letter-spacing: 8px;
@@ -1191,4 +1266,98 @@ body {
   width: 100%;
   color: var(--gold);
   margin: 4px 0 12px;
+}
+
+/* Music Player */
+.music-player {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+  z-index: 999;
+}
+
+/* Button */
+.music-btn {
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--navy);
+
+  color: var(--white);
+  font-size: 18px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Info */
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--navy);
+}
+
+.music-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.music-info p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Icon */
+.music-icon {
+  font-size: 20px;
+  color: var(--navy);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .music-player {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 14px;
+  }
+
+  .music-info h4 {
+    font-size: 13px;
+  }
+
+  .music-info p {
+    font-size: 11px;
+  }
 }
