@@ -19,962 +19,12 @@ export default function Page() {
   useEffect(() => {
     const name = window.location.search.split("name=")[1] || "";
     setName(name);
-    console.log(`Visitor accessed with path: ${name}`);
   }, []);
 
   const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg"];
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap');
-
-        :root {
-          --navy: #1a2744;
-          --navy-light: #243366;
-          --cream: #f5eedd;
-          --cream-dark: #e8d8bc;
-          --gold: #c8a96e;
-          --gold-light: #dfc08a;
-          --rose: #c97b8a;
-          --white: #fffdf7;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-          background: var(--cream);
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          min-height: 100vh;
-        }
-          /* ───────── PREWEDDING ───────── */
-
-.prewed-card {
-  background: linear-gradient(
-    160deg,
-    #1a2744 0%,
-    #243366 50%,
-    #1a2744 100%
-  );
-  border-radius: 24px;
-  padding: 28px 20px;
-  margin-bottom: 18px;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 25px 70px rgba(26,39,68,0.35),
-    0 0 0 1px rgba(200,169,110,0.15);
-}
-
-/* decorative blur */
-.prewed-card::before {
-  content: '';
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  background: rgba(200,169,110,0.08);
-  border-radius: 50%;
-  top: -80px;
-  right: -80px;
-  filter: blur(10px);
-}
-
-.prewed-card::after {
-  content: '';
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 50%;
-  bottom: -60px;
-  left: -60px;
-}
-
-.prewed-header {
-  text-align: center;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 2;
-}
-
-.prewed-label {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: #c8a96e;
-  margin-bottom: 8px;
-}
-
-.prewed-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-  color: #f5eedd;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.prewed-divider {
-  color: #c8a96e;
-  letter-spacing: 8px;
-  font-size: 14px;
-}
-
-.prewed-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  position: relative;
-  z-index: 2;
-}
-
-.prewed-item {
-  position: relative;
-}
-
-.prewed-frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  height: 240px;
-  background: #ddd;
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.25),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-/* elegant border */
-.prewed-frame::before {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.25);
-  z-index: 3;
-  pointer-events: none;
-}
-
-.prewed-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition:
-    transform 1.2s ease,
-    filter 0.8s ease;
-  transform: scale(1);
-}
-
-/* overlay cinematic */
-.prewed-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(26,39,68,0.75),
-      transparent 45%
-    );
-  z-index: 1;
-}
-
-/* shine animation */
-.shine-effect {
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: rgba(255,255,255,0.18);
-  transform: skewX(-25deg);
-  z-index: 2;
-  transition: 1s;
-}
-
-.prewed-frame:hover .shine-effect {
-  left: 150%;
-}
-
-.prewed-frame:hover .prewed-image {
-  transform: scale(1.12) rotate(2deg);
-  filter: brightness(1.05);
-}
-
-.prewed-number {
-  position: absolute;
-  bottom: 14px;
-  right: 18px;
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  color: rgba(255,255,255,0.85);
-  z-index: 3;
-  letter-spacing: 0.15em;
-}
-
-/* floating animations */
-.float-up {
-  animation: floatUp 5s ease-in-out infinite;
-}
-
-.float-down {
-  animation: floatDown 5s ease-in-out infinite;
-}
-
-@keyframes floatUp {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes floatDown {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-.prewed-caption {
-  margin-top: 22px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.9;
-  color: #e8d8bc;
-  font-style: italic;
-  position: relative;
-  z-index: 2;
-}
-
-        .page-bg {
-          min-height: 100vh;
-          background:
-            radial-gradient(ellipse at 10% 10%, rgba(26,39,68,0.06) 0%, transparent 50%),
-            radial-gradient(ellipse at 90% 90%, rgba(200,169,110,0.10) 0%, transparent 50%),
-            linear-gradient(160deg, #f7edd8 0%, #f0e4c8 40%, #e8d8bc 100%);
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-          /* ───────── GIFT SECTION ───────── */
-
-.gift-card {
-  background:
-    linear-gradient(
-      160deg,
-      #fffdf7 0%,
-      #f7edd8 100%
-    );
-  border-radius: 24px;
-  padding: 28px 22px;
-  margin-bottom: 18px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(200,169,110,0.22);
-  box-shadow:
-    0 15px 45px rgba(26,39,68,0.08);
-}
-
-.gift-card::before {
-  content: '';
-  position: absolute;
-  top: -70px;
-  right: -70px;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(200,169,110,0.08);
-}
-
-.gift-header {
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.gift-label {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: #c8a96e;
-  margin-bottom: 8px;
-}
-
-.gift-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-  color: #1a2744;
-  margin-bottom: 10px;
-}
-
-.gift-divider {
-  color: #c8a96e;
-  letter-spacing: 8px;
-  margin-bottom: 18px;
-}
-
-.gift-description {
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.9;
-  color: #666;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 2;
-}
-
-.bank-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: white;
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 14px;
-  box-shadow:
-    0 10px 25px rgba(26,39,68,0.06);
-  border: 1px solid rgba(200,169,110,0.15);
-  transition: 0.35s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.bank-item:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 18px 35px rgba(26,39,68,0.12);
-}
-
-.bank-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: rgba(255,255,255,0.5);
-  transform: skewX(-20deg);
-  transition: 1s;
-}
-
-.bank-item:hover::before {
-  left: 150%;
-}
-
-.bank-logo {
-  width: 58px;
-  height: 58px;
-  border-radius: 16px;
-  background:
-    linear-gradient(
-      135deg,
-      #1a2744,
-      #243366
-    );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #dfc08a;
-  font-family: 'Cinzel', serif;
-  font-size: 15px;
-  letter-spacing: 0.1em;
-  flex-shrink: 0;
-}
-
-.bank-content {
-  flex: 1;
-}
-
-.bank-name {
-  font-size: 11px;
-  color: #888;
-  margin-bottom: 3px;
-  letter-spacing: 0.05em;
-}
-
-.bank-number {
-  font-size: 20px;
-  color: #1a2744;
-  margin-bottom: 4px;
-  font-weight: 600;
-}
-
-.bank-owner {
-  font-size: 12px;
-  color: #666;
-  font-style: italic;
-}
-
-.copy-btn {
-  border: none;
-  background:
-    linear-gradient(
-      135deg,
-      #1a2744,
-      #243366
-    );
-  color: #dfc08a;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  transition: 0.3s;
-}
-
-.copy-btn:hover {
-  transform: scale(1.05);
-}
-
-.gift-address {
-  margin-top: 22px;
-  background: rgba(26,39,68,0.03);
-  border-radius: 18px;
-  padding: 18px;
-  text-align: center;
-}
-
-.gift-address-label {
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: #1a2744;
-  margin-bottom: 10px;
-}
-
-.gift-address-text {
-  font-size: 13px;
-  line-height: 1.8;
-  color: #666;
-  font-style: italic;
-}
-
-        /* ─── COVER CARD ─── */
-        .cover-card {
-          width: 100%;
-          max-width: 420px;
-          background: var(--navy);
-          border-radius: 24px;
-          overflow: hidden;
-          box-shadow:
-            0 30px 80px rgba(26,39,68,0.35),
-            0 0 0 1px rgba(200,169,110,0.3);
-          position: relative;
-        }
-
-        .cover-top {
-          background: var(--cream);
-          padding: 0 0 0 0;
-          position: relative;
-          min-height: 360px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        /* Ornamental corner lines */
-        .corner-ornament {
-          position: absolute;
-          width: 60px;
-          height: 60px;
-        }
-        .corner-ornament.tl { top: 8px; left: 8px; }
-        .corner-ornament.tr { top: 8px; right: 8px; transform: scaleX(-1); }
-        .corner-ornament.bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
-        .corner-ornament.br { bottom: 8px; right: 8px; transform: scale(-1); }
-
-        .corner-ornament svg { width: 100%; height: 100%; }
-
-        /* Lace border strip at top of cream area */
-        .lace-top {
-          width: 100%;
-          height: 18px;
-          background: var(--navy);
-          position: relative;
-          margin-bottom: 0;
-        }
-        .lace-top::after {
-          content: '';
-          position: absolute;
-          bottom: -12px;
-          left: 0; right: 0;
-          height: 24px;
-          background: var(--navy);
-          clip-path: polygon(
-            0% 0%, 2% 100%, 4% 0%, 6% 100%, 8% 0%, 10% 100%, 12% 0%, 14% 100%, 16% 0%,
-            18% 100%, 20% 0%, 22% 100%, 24% 0%, 26% 100%, 28% 0%, 30% 100%, 32% 0%,
-            34% 100%, 36% 0%, 38% 100%, 40% 0%, 42% 100%, 44% 0%, 46% 100%, 48% 0%,
-            50% 100%, 52% 0%, 54% 100%, 56% 0%, 58% 100%, 60% 0%, 62% 100%, 64% 0%,
-            66% 100%, 68% 0%, 70% 100%, 72% 0%, 74% 100%, 76% 0%, 78% 100%, 80% 0%,
-            82% 100%, 84% 0%, 86% 100%, 88% 0%, 90% 100%, 92% 0%, 94% 100%, 96% 0%,
-            98% 100%, 100% 0%
-          );
-        }
-
-        .wedding-of-label {
-          font-family: 'Cinzel', serif;
-          font-size: 10px;
-          letter-spacing: 0.4em;
-          color: var(--navy);
-          text-transform: uppercase;
-          margin-top: 36px;
-          margin-bottom: 16px;
-        }
-
-        /* Oval portrait frames */
-        .portraits-row {
-          display: flex;
-          gap: 16px;
-          justify-content: center;
-          margin-bottom: 12px;
-        }
-
-        .portrait-frame {
-          width: 90px;
-          height: 110px;
-          border-radius: 50% / 55%;
-          border: 3px solid var(--navy);
-          background: linear-gradient(135deg, #e8d8bc, #d4c4a0);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 4px 16px rgba(26,39,68,0.18);
-        }
-
-        .portrait-frame::before {
-          content: '';
-          position: absolute;
-          inset: 4px;
-          border-radius: 50% / 55%;
-          border: 1px solid rgba(26,39,68,0.3);
-        }
-
-        .portrait-emoji {
-          font-size: 48px;
-          line-height: 1;
-          margin-top: 8px;
-        }
-
-        .couple-name {
-          font-family: 'Great Vibes', cursive;
-          font-size: 40px;
-          color: var(--navy);
-          text-align: center;
-          line-height: 1.1;
-          margin: 4px 0 6px;
-          padding: 0 16px;
-        }
-
-        .cover-date {
-          font-family: 'Cinzel', serif;
-          font-size: 11px;
-          letter-spacing: 0.2em;
-          color: var(--navy);
-          margin-bottom: 10px;
-        }
-
-        .kepada-label {
-          font-family: 'Cinzel', serif;
-          font-size: 9px;
-          letter-spacing: 0.3em;
-          color: #888;
-          text-transform: uppercase;
-          margin-bottom: 4px;
-        }
-
-        .guest-box {
-          width: 72%;
-          height: 50px;
-          border: 1.5px dashed var(--navy);
-          border-radius: 8px;
-          margin-bottom: 10px;
-          background: rgba(26,39,68,0.03);
-        }
-
-        .sorry-note {
-          font-size: 9px;
-          color: #999;
-          font-style: italic;
-          margin-bottom: 12px;
-          text-align: center;
-          padding: 0 20px;
-        }
-
-        /* Floral decoration */
-        .flowers-top {
-          position: absolute;
-          top: -10px;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 52px;
-          pointer-events: none;
-          filter: saturate(0.85);
-          white-space: nowrap;
-        }
-
-        .flowers-corner-l {
-          position: absolute;
-          bottom: 30px;
-          left: -10px;
-          font-size: 44px;
-          transform: rotate(15deg);
-          pointer-events: none;
-        }
-        .flowers-corner-r {
-          position: absolute;
-          bottom: 30px;
-          right: -10px;
-          font-size: 44px;
-          transform: rotate(-15deg) scaleX(-1);
-          pointer-events: none;
-        }
-
-        /* Cover bottom (navy section) */
-        .cover-bottom {
-          background: var(--navy);
-          padding: 20px 28px 28px;
-          position: relative;
-        }
-
-        .lace-bottom-stripe {
-          width: 100%;
-          height: 16px;
-          background: var(--cream);
-          clip-path: polygon(
-            0% 100%, 2% 0%, 4% 100%, 6% 0%, 8% 100%, 10% 0%, 12% 100%, 14% 0%, 16% 100%,
-            18% 0%, 20% 100%, 22% 0%, 24% 100%, 26% 0%, 28% 100%, 30% 0%, 32% 100%, 34% 0%,
-            36% 100%, 38% 0%, 40% 100%, 42% 0%, 44% 100%, 46% 0%, 48% 100%, 50% 0%,
-            52% 100%, 54% 0%, 56% 100%, 58% 0%, 60% 100%, 62% 0%, 64% 100%, 66% 0%,
-            68% 100%, 70% 0%, 72% 100%, 74% 0%, 76% 100%, 78% 0%, 80% 100%, 82% 0%,
-            84% 100%, 86% 0%, 88% 100%, 90% 0%, 92% 100%, 94% 0%, 96% 100%, 98% 0%, 100% 100%
-          );
-          margin-bottom: 16px;
-        }
-
-        .monogram-circle {
-          width: 52px;
-          height: 52px;
-          border-radius: 50%;
-          border: 2px solid var(--gold);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 12px;
-          background: rgba(200,169,110,0.1);
-        }
-
-        .monogram-text {
-          font-family: 'Great Vibes', cursive;
-          font-size: 22px;
-          color: var(--gold);
-        }
-
-        .quran-verse {
-          font-family: 'Cormorant Garamond', serif;
-          font-style: italic;
-          font-size: 13px;
-          line-height: 1.8;
-          color: var(--cream-dark);
-          text-align: center;
-          margin-bottom: 8px;
-        }
-
-        .quran-ref {
-          font-family: 'Cinzel', serif;
-          font-size: 10px;
-          color: var(--gold);
-          text-align: center;
-          letter-spacing: 0.1em;
-          margin-bottom: 20px;
-        }
-
-        /* ─── OPEN BUTTON ─── */
-        .open-btn {
-          margin-top: 20px;
-          padding: 14px 48px;
-          background: linear-gradient(135deg, var(--navy), var(--navy-light));
-          color: var(--gold-light);
-          border: none;
-          border-radius: 50px;
-          font-family: 'Cinzel', serif;
-          font-size: 13px;
-          letter-spacing: 0.25em;
-          cursor: pointer;
-          box-shadow: 0 8px 32px rgba(26,39,68,0.3);
-          transition: all 0.3s ease;
-          text-transform: uppercase;
-        }
-        .open-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 40px rgba(26,39,68,0.4);
-          background: linear-gradient(135deg, var(--navy-light), #2e4080);
-        }
-
-        /* ─── INNER CONTENT ─── */
-        .inner-content {
-          width: 100%;
-          max-width: 420px;
-          margin-top: 20px;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.6s ease;
-        }
-        .inner-content.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        /* Bismillah card */
-        .bismillah-card {
-          background: var(--navy);
-          border-radius: 20px;
-          padding: 28px 24px;
-          text-align: center;
-          margin-bottom: 16px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 20px 60px rgba(26,39,68,0.3);
-        }
-
-        .bismillah-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .bismillah-text {
-          font-size: 22px;
-          color: var(--gold-light);
-          font-family: 'Cormorant Garamond', serif;
-          font-style: italic;
-          margin-bottom: 12px;
-          line-height: 1.6;
-        }
-
-        .invitation-text {
-          font-size: 13px;
-          color: var(--cream-dark);
-          line-height: 1.9;
-        }
-
-        /* Bride & groom card */
-        .couple-card {
-          background: var(--white);
-          border-radius: 20px;
-          padding: 32px 24px;
-          text-align: center;
-          margin-bottom: 16px;
-          border: 1px solid rgba(200,169,110,0.25);
-          box-shadow: 0 10px 40px rgba(26,39,68,0.08);
-          position: relative;
-        }
-
-        .couple-card::before, .couple-card::after {
-          content: '';
-          position: absolute;
-          left: 24px; right: 24px;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-        .couple-card::before { top: 16px; }
-        .couple-card::after { bottom: 16px; }
-
-        .person-label {
-          font-family: 'Cinzel', serif;
-          font-size: 9px;
-          letter-spacing: 0.35em;
-          color: var(--gold);
-          text-transform: uppercase;
-          margin-bottom: 6px;
-        }
-
-        .person-name {
-          font-family: 'Great Vibes', cursive;
-          font-size: 36px;
-          color: var(--navy);
-          line-height: 1.1;
-          margin-bottom: 4px;
-        }
-
-        .person-parent {
-          font-size: 12px;
-          color: #888;
-          font-style: italic;
-          line-height: 1.7;
-        }
-
-        .ampersand-divider {
-          font-family: 'Great Vibes', cursive;
-          font-size: 48px;
-          color: var(--gold);
-          margin: 12px 0;
-          display: block;
-        }
-
-        .honor-text {
-          font-size: 12.5px;
-          color: #666;
-          line-height: 1.8;
-          margin-top: 16px;
-          font-style: italic;
-        }
-
-        /* Schedule card */
-        .schedule-card {
-          background: var(--navy);
-          border-radius: 20px;
-          overflow: hidden;
-          margin-bottom: 16px;
-          box-shadow: 0 20px 60px rgba(26,39,68,0.3);
-        }
-
-        .schedule-header {
-          padding: 20px 24px 16px;
-          text-align: center;
-          border-bottom: 1px solid rgba(200,169,110,0.2);
-        }
-
-        .schedule-title {
-          font-family: 'Cinzel', serif;
-          font-size: 10px;
-          letter-spacing: 0.4em;
-          color: var(--gold);
-          text-transform: uppercase;
-        }
-
-        .schedule-item {
-          padding: 18px 28px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .schedule-item-label {
-          font-family: 'Cinzel', serif;
-          font-size: 11px;
-          letter-spacing: 0.15em;
-          color: var(--cream);
-          font-weight: 500;
-        }
-
-        .schedule-item-time {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 14px;
-          color: var(--gold-light);
-          font-style: italic;
-        }
-
-        /* Location card */
-        .location-card {
-          background: var(--white);
-          border-radius: 20px;
-          overflow: hidden;
-          margin-bottom: 16px;
-          border: 1px solid rgba(200,169,110,0.25);
-          box-shadow: 0 10px 40px rgba(26,39,68,0.08);
-        }
-
-        .location-header {
-          padding: 24px 24px 16px;
-          border-bottom: 1px solid rgba(200,169,110,0.15);
-        }
-
-        .location-label {
-          font-family: 'Cinzel', serif;
-          font-size: 9px;
-          letter-spacing: 0.35em;
-          color: var(--gold);
-          text-transform: uppercase;
-          margin-bottom: 8px;
-        }
-
-        .location-name {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 20px;
-          font-weight: 500;
-          color: var(--navy);
-          margin-bottom: 4px;
-        }
-
-        .location-address {
-          font-size: 13px;
-          color: #888;
-          line-height: 1.7;
-          font-style: italic;
-        }
-
-        .maps-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: 12px;
-          padding: 10px 22px;
-          background: var(--navy);
-          color: var(--gold-light);
-          border-radius: 50px;
-          font-family: 'Cinzel', serif;
-          font-size: 10px;
-          letter-spacing: 0.2em;
-          text-decoration: none;
-          transition: all 0.3s;
-          text-transform: uppercase;
-        }
-        .maps-btn:hover {
-          background: var(--navy-light);
-          transform: translateY(-1px);
-        }
-
-        .map-embed {
-          width: 100%;
-          height: 200px;
-          border: 0;
-          display: block;
-          margin-top: 8px;
-        }
-
-        /* QR / closing card */
-        .closing-card {
-          background: var(--navy);
-          border-radius: 20px;
-          padding: 28px 24px;
-          text-align: center;
-          margin-bottom: 16px;
-          box-shadow: 0 20px 60px rgba(26,39,68,0.3);
-        }
-
-        .closing-line {
-          font-family: 'Great Vibes', cursive;
-          font-size: 20px;
-          color: var(--gold-light);
-          line-height: 1.8;
-          margin-bottom: 12px;
-        }
-
-        .closing-sub {
-          font-size: 11px;
-          color: var(--cream-dark);
-          letter-spacing: 0.05em;
-          font-style: italic;
-        }
-
-        .divider-ornament {
-          text-align: center;
-          color: var(--gold);
-          font-size: 18px;
-          margin: 4px 0 12px;
-          letter-spacing: 8px;
-        }
-      `}</style>
-
       <div className="page-bg">
         {/* ═══ COVER CARD ═══ */}
         <div className="cover-card">
@@ -1069,57 +119,48 @@ export default function Page() {
         {/* ═══ INNER CONTENT ═══ */}
         <div className={`inner-content ${isOpen && showContent ? "visible" : ""}`}>
           {/* Bismillah / Opening */}
-          <div className="bismillah-card">
-            <p className="bismillah-text">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-            <div className="divider-ornament">✦ · ✦</div>
+          <div className="bismillah-text bismillah-card">
+            <p className="">SAVE</p>
+            <p className=""> THE</p>
+            <p className="">DATE</p>
+            {/* <div className="divider-ornament">✦ · ✦</div> */}
+            <img src="/img/bg1.svg" alt="Divider" className="img-jaritangan" />
+            <p>Nida + Dede</p>
             <p className="invitation-text">
-              Dengan memohon rahmat dan ridho Allah SWT,
-              <br />
-              kami bermaksud mengundang Bapak/Ibu/Saudara/Saudari
-              <br />
-              untuk turut menyaksikan serta memberikan doa restu
-              <br />
-              dalam acara pernikahan kami.
+              “And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them. And He has placed between you compassion and mercy. Surely in this are signs for people who reflect.”
             </p>
           </div>
 
           {/* Couple Names */}
           <div className="couple-card">
-            <p className="person-label">Mempelai Wanita</p>
-            <h2 className="person-name">Nida Winarti</h2>
+            <p className="person-label">Together with our family, we invite you to join us in our wedding vows</p>
+            <h2 className="bismillah-text">Bride & Groom</h2>
+            <img src="/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg" alt="Divider" className="couple-divider" />
+            <h2 className="bismillah-text">Nida Winarti</h2>
             <p className="person-parent">
-              Putri dari Bapak Endang Sukendar
-              <br />& Ibu Sastiawati
+              The beloved daughter of <br /> Mr Endang Sukendar & Mrs Sastiawati{" "}
             </p>
 
-            <span className="ampersand-divider">&</span>
+            <span className="bismillah-text">&</span>
 
-            <p className="person-label">Mempelai Pria</p>
-            <h2 className="person-name">Dede Ismail Darurukmi</h2>
+            <h2 className="bismillah-text">Dede Ismail Darurukmi</h2>
             <p className="person-parent">
-              Putra dari Bapak Mukhtar Darurukmi
-              <br />& Ibu Euis
+              The beloved son of <br /> Mr Mukhtar Darurukmi & Mrs Euis{" "}
             </p>
-
-            <p className="honor-text">
-              Merupakan suatu kehormatan dan kebahagiaan
-              <br />
-              bagi kami atas kehadiran serta doa restu
-              <br />
-              Bapak/Ibu/Saudara/i, kami ucapkan terima kasih
-            </p>
+            <p className="honor-text">It is an honor and a pleasure for us to have your presence and blessing. Ladies and gentlemen, we express our gratitude.</p>
           </div>
 
           {/* Schedule */}
           <div className="schedule-card">
             <div className="schedule-header">
-              <p className="schedule-title">Rangkaian Acara</p>
+              <img src="/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg" alt="Divider" className="schedule-divider" />
+              <img src="/img/save-the-date.jpeg" alt="Divider" className="save-date" />
             </div>
 
             <div className="schedule-item">
               <div>
                 <p className="schedule-item-label">AKAD NIKAH</p>
-                <p style={{ fontSize: "11px", color: "#aaa", marginTop: "2px", fontStyle: "italic" }}>Minggu, 05 Juli 2026</p>
+                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 05 July 2026</p>
               </div>
               <p className="schedule-item-time">09.00 – 10.00 WIB</p>
             </div>
@@ -1127,11 +168,52 @@ export default function Page() {
             <div className="schedule-item" style={{ borderBottom: "none" }}>
               <div>
                 <p className="schedule-item-label">RESEPSI</p>
-                <p style={{ fontSize: "11px", color: "#aaa", marginTop: "2px", fontStyle: "italic" }}>Minggu, 05 Juli 2026</p>
+                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Minggu, 05 Juli 2026</p>
               </div>
               <p className="schedule-item-time">10.00 WIB – Selesai</p>
             </div>
           </div>
+
+          <section class="event-section">
+            <div class="calendar-card">
+              <div class="calendar-header">
+                <div class="day-box">
+                  <span class="day-name">Saturday</span>
+                  <h1>4</h1>
+                </div>
+
+                <div class="day-box active">
+                  <span class="day-name">Sunday</span>
+                  <h1>5</h1>
+                  <p class="dday">D-day!!</p>
+                </div>
+
+                <div class="day-box">
+                  <span class="day-name">Monday</span>
+                  <h1>6</h1>
+                </div>
+              </div>
+
+              <div class="event-content">
+                <h2>Wedding intimate party</h2>
+
+                <div class="event-detail">
+                  <p>Sunday, 05 July 2026</p>
+                  <p>08.00 WIB</p>
+
+                  <p>
+                    Kp. Nungku RT. 13 RW. 05 Desa Cilangkap
+                    <br />
+                    Kec. Lengkong, Kab. Sukabumi
+                  </p>
+                </div>
+
+                <a href={mapsUrl} target="_blank" rel="noreferrer noopener" class="location-btn">
+                  See Location
+                </a>
+              </div>
+            </div>
+          </section>
 
           {/* Photo Prewedding */}
           <div className="prewed-card">
@@ -1169,12 +251,15 @@ export default function Page() {
           {/* Wedding Gift Section */}
           <div className="gift-card">
             <div className="gift-header">
-              <p className="gift-label">Wedding Gift</p>
-              <h2 className="gift-title">Kirim Hadiah</h2>
-              <div className="gift-divider">✦ ✦ ✦</div>
+              <p className="gift-label">
+                Wedding <br /> Gift
+              </p>
             </div>
-
-            <p className="gift-description">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah bentuk tanda kasih, Anda dapat mengirimkan hadiah melalui rekening berikut.</p>
+            <div className="gift-description">
+              <p>Your presence is the most meaningful gift of all. But if you'd like to give something extra, we kindly prefer cash gifts to help us begin our next chapter together.</p>
+              <p>If You wish to make a contribution, we've created a Honeymoon Fund to create unforgettable moments our first adventure as married couple.</p>
+              <p>Thank You!</p>
+            </div>
 
             {/* BANK ITEM */}
             <div className="bank-item">
@@ -1218,32 +303,9 @@ export default function Page() {
               </button>
             </div>
 
-            {/* ADDRESS */}
-            <div className="gift-address">
-              <p className="gift-address-label">📦 Kirim Kado</p>
-
-              <p className="gift-address-text">
-                Kp. Nungku Rt.13 Rw.05 Desa Cilangkap
-                <br />
-                Kec. Lengkong Kab. Sukabumi
-              </p>
-            </div>
-          </div>
-          {/* Location */}
-          <div className="location-card">
-            <div className="location-header">
-              <p className="location-label">Bertempat di</p>
-              <p className="location-name">Kediaman Mempelai Wanita</p>
-              <p className="location-address">
-                Kp. Nungku Rt. 13 Rw. 05 Desa Cilangkap
-                <br />
-                Kec. Lengkong Kab. Sukabumi
-              </p>
-              <a href={mapsUrl} target="_blank" rel="noreferrer noopener" className="maps-btn">
-                📍 Buka Google Maps
-              </a>
-            </div>
-            <iframe title="Lokasi Pernikahan" src="https://maps.google.com/maps?q=-7.1062691,106.6739499&z=17&output=embed" className="map-embed" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <a href={"https://wa.me/6287796315921"} target="_blank" rel="noreferrer noopener" class="wa-btn">
+              Whatsapp Number
+            </a>
           </div>
 
           {/* Closing */}
@@ -1251,7 +313,7 @@ export default function Page() {
             <p className="closing-line">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
             <div className="divider-ornament">✦ · ✦</div>
             <p className="closing-sub">Hormat kami,</p>
-            <p style={{ fontFamily: "'Great Vibes', cursive", fontSize: "28px", color: "var(--gold-light)", marginTop: "6px" }}>Nida & Dede</p>
+            <p style={{ fontFamily: "'Great Vibes', cursive", fontSize: "28px", color: "var(--red)", marginTop: "6px" }}>Nida & Dede</p>
             <p style={{ fontSize: "11px", color: "#aaa", marginTop: "10px", fontStyle: "italic" }}>& Keluarga Besar</p>
           </div>
         </div>
