@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import MusicPlayer from "./components/atoms/musicPlayer";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Page() {
           {/* TOP: cream section */}
           <div className="cover-top">
             {/* Lace header */}
-            <div className="lace-top" />
+            <div className="" />
 
             {/* Corner ornaments */}
             {["tl", "tr", "bl", "br"].map((pos) => (
@@ -46,22 +47,25 @@ export default function Page() {
               </div>
             ))}
 
-            {/* Flowers at top */}
-            <div className="flowers-top">🌸🌺🌸</div>
-
             <p className="wedding-of-label">The Wedding Of</p>
+            <MusicPlayer />
 
             {/* Portrait frames */}
             <div className="portraits-row">
-              <div className="portrait-frame">
-                <span className="portrait-emoji">🧕</span>
+              <div className="portrait-card bride">
+                <span className="portrait-frame">
+                  <img src="/img/first.jpeg" alt="Portrait Nida" className="portrait-img" />
+                </span>
               </div>
-              <div className="portrait-frame">
-                <span className="portrait-emoji">🧔</span>
+
+              <div className="portrait-card groom">
+                <span className="portrait-frame">
+                  <img src="/img/second.jpeg" alt="Portrait Ismail" className="portrait-img" />
+                </span>
               </div>
             </div>
 
-            <h1 className="couple-name">Nida & Dede</h1>
+            <h1 className="couple-name">Nida & Ismail</h1>
             <p className="cover-date">05 Juli 2026</p>
 
             <p className="kepada-label">Kepada Yth Bapak/Ibu</p>
@@ -88,8 +92,8 @@ export default function Page() {
             <p className="sorry-note">Mohon maaf bila ada kesalahan penulisan nama/gelar</p>
 
             {/* Flower corners */}
-            <div className="flowers-corner-l">🌹</div>
-            <div className="flowers-corner-r">🌹</div>
+            {/* <div className="flowers-corner-l">🌹</div>
+            <div className="flowers-corner-r">🌹</div> */}
           </div>
 
           {/* BOTTOM: navy section */}
@@ -97,7 +101,7 @@ export default function Page() {
             <div className="lace-bottom-stripe" />
 
             <div className="monogram-circle">
-              <span className="monogram-text">ND</span>
+              <span className="monogram-text">NI</span>
             </div>
 
             <p className="quran-verse">
@@ -124,8 +128,8 @@ export default function Page() {
             <p className=""> THE</p>
             <p className="">DATE</p>
             {/* <div className="divider-ornament">✦ · ✦</div> */}
-            <img src="/img/bg1.svg" alt="Divider" className="img-jaritangan" />
-            <p>Nida + Dede</p>
+            <img src="/img/bg2.svg" alt="Divider" className="img-jaritangan" />
+            <p>Nida + Ismail</p>
             <p className="invitation-text">
               “And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them. And He has placed between you compassion and mercy. Surely in this are signs for people who reflect.”
             </p>
@@ -154,7 +158,12 @@ export default function Page() {
           <div className="schedule-card">
             <div className="schedule-header">
               <img src="/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg" alt="Divider" className="schedule-divider" />
-              <img src="/img/save-the-date.jpeg" alt="Divider" className="save-date" />
+              <div className="save-date">
+                <p className="schedule-label save">SAVE</p>
+                <p className="schedule-label the">THE</p>
+                <p className="schedule-label date">DATE!</p>
+              </div>
+              {/* <img src="/img/save-the-date.jpeg" alt="Divider" className="save-date" /> */}
             </div>
 
             <div className="schedule-item">
@@ -174,30 +183,30 @@ export default function Page() {
             </div>
           </div>
 
-          <section class="event-section">
-            <div class="calendar-card">
-              <div class="calendar-header">
-                <div class="day-box">
-                  <span class="day-name">Saturday</span>
+          <section className="event-section">
+            <div className="calendar-card">
+              <div className="calendar-header">
+                <div className="day-box">
+                  <span className="day-name">Saturday</span>
                   <h1>4</h1>
                 </div>
 
-                <div class="day-box active">
-                  <span class="day-name">Sunday</span>
+                <div className="day-box active">
+                  <span className="day-name">Sunday</span>
                   <h1>5</h1>
-                  <p class="dday">D-day!!</p>
+                  <p className="dday">D-day!!</p>
                 </div>
 
-                <div class="day-box">
-                  <span class="day-name">Monday</span>
+                <div className="day-box">
+                  <span className="day-name">Monday</span>
                   <h1>6</h1>
                 </div>
               </div>
 
-              <div class="event-content">
+              <div className="event-content">
                 <h2>Wedding intimate party</h2>
 
-                <div class="event-detail">
+                <div className="event-detail">
                   <p>Sunday, 05 July 2026</p>
                   <p>08.00 WIB</p>
 
@@ -208,7 +217,7 @@ export default function Page() {
                   </p>
                 </div>
 
-                <a href={mapsUrl} target="_blank" rel="noreferrer noopener" class="location-btn">
+                <a href={mapsUrl} target="_blank" rel="noreferrer noopener" className="location-btn">
                   See Location
                 </a>
               </div>
@@ -303,7 +312,7 @@ export default function Page() {
               </button>
             </div>
 
-            <a href={"https://wa.me/6287796315921"} target="_blank" rel="noreferrer noopener" class="wa-btn">
+            <a href={"https://wa.me/6287796315921"} target="_blank" rel="noreferrer noopener" className="wa-btn">
               Whatsapp Number
             </a>
           </div>
@@ -313,7 +322,7 @@ export default function Page() {
             <p className="closing-line">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
             <div className="divider-ornament">✦ · ✦</div>
             <p className="closing-sub">Hormat kami,</p>
-            <p style={{ fontFamily: "'Great Vibes', cursive", fontSize: "28px", color: "var(--red)", marginTop: "6px" }}>Nida & Dede</p>
+            <p style={{ fontFamily: "'Great Vibes', cursive", fontSize: "28px", color: "var(--navy)", marginTop: "6px" }}>Nida & Ismail</p>
             <p style={{ fontSize: "11px", color: "#aaa", marginTop: "10px", fontStyle: "italic" }}>& Keluarga Besar</p>
           </div>
         </div>
