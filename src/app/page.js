@@ -23,7 +23,7 @@ export default function Page() {
     setName(name);
   }, []);
 
-  const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg"];
+  const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg", "/img/prewed.jpeg"];
 
   return (
     <>
