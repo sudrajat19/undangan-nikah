@@ -1,49 +1,1194 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Patrick+Hand&family=Quicksand:wght@400;500;700&display=swap");
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #1a2744;
+  --navy-light: #243366;
+  --cream: #f5eedd;
+  --cream-dark: #e8d8bc;
+  --gold: #c8a96e;
+  --gold-light: #dfc08a;
+  --rose: #c97b8a;
+  --white: #fffdf7;
+  --mycolor: #f5f2f0;
+  --red: #9e0e00;
+  --black: #333;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
+.event-section {
   display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+.calendar-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--mycolor);
+  overflow: hidden;
+}
+
+/* HEADER CALENDAR */
+.calendar-header {
+  display: flex;
+  border-bottom: 2px solid var(--red);
+}
+
+.day-box {
+  flex: 1;
+  text-align: center;
+  border-right: 2px solid var(--red);
+  padding: 12px 10px 20px;
+  position: relative;
+}
+
+.day-box:last-child {
+  border-right: none;
+}
+
+.day-name {
+  display: block;
+  font-family: "Great Vibes", cursive;
+  color: #8f1400;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.day-box h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 80px;
+  line-height: 1;
+  color: #8f1400;
+  margin: 0;
+}
+
+.active {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.dday {
+  font-family: "Great Vibes", cursive;
+  color: #8f1400;
+  font-size: 24px;
+  transform: rotate(-10deg);
+  margin-top: 10px;
+}
+
+/* CONTENT */
+.event-content {
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.event-content h2 {
+  font-family: "Great Vibes", cursive;
+  color: #8f1400;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.event-detail {
+  color: #222;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.venue-title {
+  margin-top: 25px;
+  font-weight: 700;
+}
+
+.location-btn {
+  display: inline-block;
+  margin-top: 40px;
+  background: #8f1400;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 40px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.location-btn:hover {
+  background: #6f0f00;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  background: var(--mycolor);
+  font-family: "Great Vibes", cursive;
+  min-height: 100vh;
+}
+/* ───────── PREWEDDING ───────── */
+
+.prewed-card {
+  /* background: img url("/img/bg1.svg") center/cover no-repeat; */
+  /* border-radius: 24px; */
+  padding: 28px 20px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  /* box-shadow:
+    0 25px 70px rgba(26, 39, 68, 0.35),
+    0 0 0 1px rgba(200, 169, 110, 0.15); */
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* decorative blur */
+.prewed-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  /* background: rgba(200, 169, 110, 0.08); */
+  border-radius: 50%;
+  top: -80px;
+  right: -80px;
+  filter: blur(10px);
+}
+
+.prewed-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  /* background: rgba(255, 255, 255, 0.03); */
+  border-radius: 50%;
+  bottom: -60px;
+  left: -60px;
+}
+
+.prewed-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.prewed-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.prewed-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 40px;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.prewed-divider {
+  color: var(--red);
+  letter-spacing: 8px;
+  font-size: 14px;
+}
+
+.prewed-grid {
+  background: img url("/img/bg1.svg") center/cover no-repeat;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.prewed-item {
+  position: relative;
+}
+
+.prewed-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  height: 240px;
+  background: img url("/img/bg1.svg") center/cover no-repeat;
+  /* background: #ddd; */
+  /* box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08); */
+}
+
+/* elegant border */
+.prewed-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.prewed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 1.2s ease,
+    filter 0.8s ease;
+  transform: scale(1);
+}
+
+/* overlay cinematic */
+.prewed-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 39, 68, 0.75), transparent 45%);
+  z-index: 1;
+}
+
+/* shine animation */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  transform: skewX(-25deg);
+  z-index: 2;
+  transition: 1s;
+}
+
+.prewed-frame:hover .shine-effect {
+  left: 150%;
+}
+
+.prewed-frame:hover .prewed-image {
+  transform: scale(1.12) rotate(2deg);
+  filter: brightness(1.05);
+}
+
+.prewed-number {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  font-family: "Great Vibes", cursive;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  z-index: 3;
+  letter-spacing: 0.15em;
+}
+
+/* floating animations */
+.float-up {
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+.float-down {
+  animation: floatDown 5s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0%,
+  100% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatDown {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.prewed-caption {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--red);
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+.page-bg {
+  min-height: 100vh;
+  background: var(--mycolor);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ───────── GIFT SECTION ───────── */
+
+.gift-card {
+  /* background: linear-gradient(160deg, #fffdf7 0%, #f7edd8 100%); */
+  /* border-radius: 24px; */
+  padding: 28px 22px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  /* border: 1px solid rgba(200, 169, 110, 0.22);
+  box-shadow: 0 15px 45px rgba(26, 39, 68, 0.08); */
+}
+
+.gift-card::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 180px;
+  height: 180px;
+  /* border-radius: 50%;
+  background: rgba(200, 169, 110, 0.08); */
+}
+
+.gift-header {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.gift-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.gift-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 40px;
+  color: #1a2744;
+  margin-bottom: 10px;
+}
+
+.gift-divider {
+  color: #c8a96e;
+  letter-spacing: 8px;
+  margin-bottom: 18px;
+}
+
+.gift-description {
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.bank-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fffdf7;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 25px rgba(26, 39, 68, 0.06);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(26, 39, 68, 0.12);
+}
+
+.bank-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(-20deg);
+  transition: 1s;
+}
+
+.bank-item:hover::before {
+  left: 150%;
+}
+
+.bank-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: var(--mycolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  font-family: "Great Vibes", cursive;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.bank-content {
+  flex: 1;
+}
+
+.bank-name {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 3px;
+  letter-spacing: 0.05em;
+}
+
+.bank-number {
+  font-size: 20px;
+  color: #1a2744;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.bank-owner {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+.copy-btn {
+  border: none;
+  background: var(--mycolor);
+  color: var(--red);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  transition: 0.3s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.05);
+}
+
+.gift-address {
+  margin-top: 22px;
+  background: rgba(26, 39, 68, 0.03);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+}
+
+.gift-address-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #1a2744;
+  margin-bottom: 10px;
+}
+
+.gift-address-text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #666;
+  font-style: italic;
+}
+
+/* ─── COVER CARD ─── */
+.cover-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--mycolor);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(26, 39, 68, 0.35),
+    0 0 0 1px rgba(200, 169, 110, 0.3);
+  position: relative;
+}
+
+.cover-top {
+  background: var(--mycolor);
+  padding: 0 0 0 0;
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ornamental corner lines */
+.corner-ornament {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+.corner-ornament.tl {
+  top: 8px;
+  left: 8px;
+}
+.corner-ornament.tr {
+  top: 8px;
+  right: 8px;
+  transform: scaleX(-1);
+}
+.corner-ornament.bl {
+  bottom: 8px;
+  left: 8px;
+  transform: scaleY(-1);
+}
+.corner-ornament.br {
+  bottom: 8px;
+  right: 8px;
+  transform: scale(-1);
+}
+
+.corner-ornament svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Lace border strip at top of cream area */
+.lace-top {
+  width: 100%;
+  height: 18px;
+  background: var(--mycolor);
+  position: relative;
+  margin-bottom: 0;
+}
+.lace-top::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: var(--red);
+  clip-path: polygon(
+    0% 0%,
+    2% 100%,
+    4% 0%,
+    6% 100%,
+    8% 0%,
+    10% 100%,
+    12% 0%,
+    14% 100%,
+    16% 0%,
+    18% 100%,
+    20% 0%,
+    22% 100%,
+    24% 0%,
+    26% 100%,
+    28% 0%,
+    30% 100%,
+    32% 0%,
+    34% 100%,
+    36% 0%,
+    38% 100%,
+    40% 0%,
+    42% 100%,
+    44% 0%,
+    46% 100%,
+    48% 0%,
+    50% 100%,
+    52% 0%,
+    54% 100%,
+    56% 0%,
+    58% 100%,
+    60% 0%,
+    62% 100%,
+    64% 0%,
+    66% 100%,
+    68% 0%,
+    70% 100%,
+    72% 0%,
+    74% 100%,
+    76% 0%,
+    78% 100%,
+    80% 0%,
+    82% 100%,
+    84% 0%,
+    86% 100%,
+    88% 0%,
+    90% 100%,
+    92% 0%,
+    94% 100%,
+    96% 0%,
+    98% 100%,
+    100% 0%
+  );
+}
+
+.wedding-of-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+/* Oval portrait frames */
+.portraits-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.portrait-frame {
+  width: 90px;
+  height: 110px;
+  border-radius: 50% / 55%;
+  border: 3px solid var(--mycolor);
+  background: linear-gradient(135deg, #e8d8bc, #d4c4a0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26, 39, 68, 0.18);
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50% / 55%;
+  border: 1px solid rgba(26, 39, 68, 0.3);
+}
+
+.portrait-emoji {
+  font-size: 48px;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.couple-divider {
+  height: 300px;
+  width: 200px;
+  color: var(--mycolor);
+  letter-spacing: 8px;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+.couple-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 40px;
+  color: var(--red);
+  text-align: center;
+  line-height: 1.1;
+  margin: 4px 0 6px;
+  padding: 0 16px;
+}
+
+.schedule-header {
+  display: flex;
+  gap: 12px;
+}
+.save-date {
+  height: 200px;
+  width: 140px;
+  color: var(--gold);
+  letter-spacing: 8px;
+  font-size: 14px;
+  transform: -rotate(180deg);
+  margin: 12px 0;
+}
+.schedule-divider {
+  height: 300px;
+  width: 200px;
+  color: var(--gold);
+  border-radius: 12px;
+  letter-spacing: 8px;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+.cover-date {
+  font-family: "Great Vibes", cursive;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.kepada-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.guest-box {
+  width: 72%;
+  height: 50px;
+  border: 1.5px dashed var(--red);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: rgba(26, 39, 68, 0.03);
+}
+
+.sorry-note {
+  font-size: 9px;
+  color: #999;
+  font-style: italic;
+  margin-bottom: 12px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Floral decoration */
+.flowers-top {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 52px;
+  pointer-events: none;
+  filter: saturate(0.85);
+  white-space: nowrap;
+}
+
+.flowers-corner-l {
+  position: absolute;
+  bottom: 30px;
+  left: -10px;
+  font-size: 44px;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+.flowers-corner-r {
+  position: absolute;
+  bottom: 30px;
+  right: -10px;
+  font-size: 44px;
+  transform: rotate(-15deg) scaleX(-1);
+  pointer-events: none;
+}
+
+/* Cover bottom (navy section) */
+.cover-bottom {
+  background: var(--mycolor);
+  padding: 20px 28px 28px;
+  position: relative;
+}
+
+.lace-bottom-stripe {
+  width: 100%;
+  height: 16px;
+  background: var(--red);
+  clip-path: polygon(
+    0% 100%,
+    2% 0%,
+    4% 100%,
+    6% 0%,
+    8% 100%,
+    10% 0%,
+    12% 100%,
+    14% 0%,
+    16% 100%,
+    18% 0%,
+    20% 100%,
+    22% 0%,
+    24% 100%,
+    26% 0%,
+    28% 100%,
+    30% 0%,
+    32% 100%,
+    34% 0%,
+    36% 100%,
+    38% 0%,
+    40% 100%,
+    42% 0%,
+    44% 100%,
+    46% 0%,
+    48% 100%,
+    50% 0%,
+    52% 100%,
+    54% 0%,
+    56% 100%,
+    58% 0%,
+    60% 100%,
+    62% 0%,
+    64% 100%,
+    66% 0%,
+    68% 100%,
+    70% 0%,
+    72% 100%,
+    74% 0%,
+    76% 100%,
+    78% 0%,
+    80% 100%,
+    82% 0%,
+    84% 100%,
+    86% 0%,
+    88% 100%,
+    90% 0%,
+    92% 100%,
+    94% 0%,
+    96% 100%,
+    98% 0%,
+    100% 100%
+  );
+  margin-bottom: 16px;
+}
+
+.monogram-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  background: rgba(200, 169, 110, 0.1);
+}
+
+.monogram-text {
+  font-family: "Great Vibes", cursive;
+  font-size: 22px;
+  color: var(--red);
+}
+
+.quran-verse {
+  font-family: "Great Vibes", cursive;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.quran-ref {
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  color: var(--black);
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+/* ─── OPEN BUTTON ─── */
+.open-btn {
+  margin-top: 20px;
+  padding: 14px 48px;
+  background: var(--mycolor);
+  color: var(--red);
+  border: none;
+  border-radius: 50px;
+  font-family: "Great Vibes", cursive;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(26, 39, 68, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.open-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(26, 39, 68, 0.4);
+  background: linear-gradient(135deg, var(--mycolor), var(--mycolor));
+}
+
+/* ─── INNER CONTENT ─── */
+.inner-content {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.inner-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bismillah card */
+.bismillah-card {
+  font-family: "Great Vibes", cursive;
+  /* background: img url("/img/bg1.svg") center/cover no-repeat; */
+  /* border-radius: 20px; */
+  padding: 28px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  /* box-shadow: 0 20px 60px rgba(26, 39, 68, 0.3); */
+}
+
+.bismillah-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  /* background: linear-gradient(90deg, transparent, var(--gold), transparent); */
+}
+
+.bismillah-text {
+  font-size: 22px;
+  color: var(--red);
+  font-style: italic;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.invitation-text {
+  font-size: 13px;
+  color: var(--black);
+  line-height: 1.9;
+}
+
+/* Bride & groom card */
+.couple-card {
+  background: var(--mycolor);
+  /* border-radius: 20px; */
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  /* border: 1px solid rgba(200, 169, 110, 0.25); */
+  /* box-shadow: 0 10px 40px rgba(26, 39, 68, 0.08); */
+  position: relative;
+}
+
+.couple-card::before,
+.couple-card::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  /* background: linear-gradient(90deg, transparent, var(--gold), transparent); */
+}
+.couple-card::before {
+  top: 16px;
+}
+.couple-card::after {
+  bottom: 16px;
+}
+
+.person-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.person-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.person-parent {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.ampersand-divider {
+  font-family: "Great Vibes", cursive;
+  font-size: 48px;
+  color: var(--gold);
+  margin: 12px 0;
+  display: block;
+}
+
+.honor-text {
+  font-size: 12.5px;
+  color: #666;
+  line-height: 1.8;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* Schedule card */
+.schedule-card {
+  background: var(--mycolor);
+  /* border-radius: 20px; */
+  overflow: hidden;
+  margin-bottom: 16px;
+  /* box-shadow: 0 20px 60px rgba(26, 39, 68, 0.3); */
+}
+
+.schedule-header {
+  padding: 20px 24px 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+}
+
+.schedule-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.schedule-item {
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.schedule-item-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.schedule-item-time {
+  font-family: "Great Vibes", cursive;
+  font-size: 14px;
+  color: var(--black);
+  font-style: italic;
+}
+
+/* Location card */
+.location-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  box-shadow: 0 10px 40px rgba(26, 39, 68, 0.08);
+}
+
+.location-header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+}
+
+.location-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.location-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.location-address {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: var(--navy);
+  color: var(--gold-light);
+  border-radius: 50px;
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.maps-btn:hover {
+  background: var(--navy-light);
+  transform: translateY(-1px);
+}
+
+.map-embed {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  display: block;
+  margin-top: 8px;
+}
+
+/* QR / closing card */
+.closing-card {
+  background: var(--mycolor);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 20px 60px rgba(26, 39, 68, 0.3);
+}
+
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 25%;
+  padding: 10px 22px;
+  background: var(--red);
+  color: var(--white);
+  font-family: "Great Vibes", cursive;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.closing-line {
+  font-family: "Great Vibes", cursive;
+  font-size: 20px;
+  color: var(--red);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.closing-sub {
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+.divider-ornament {
+  text-align: center;
+  color: var(--red);
+  font-size: 18px;
+  margin: 4px 0 12px;
+  letter-spacing: 8px;
+}
+
+.img-jaritangan {
+  height: 50%;
+  width: 100%;
+  color: var(--gold);
+  margin: 4px 0 12px;
 }
