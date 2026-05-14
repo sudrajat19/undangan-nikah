@@ -5,6 +5,7 @@ import MusicPlayer from "./components/atoms/musicPlayer";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const [shouldPlayMusic, setShouldPlayMusic] = useState(false);
   const [name, setName] = useState("");
   const mapsUrl =
     "https://www.google.com/maps/place/TRI-N+BRILINK/@-7.1062691,106.671375,17z/data=!3m1!4b1!4m6!3m5!1s0x2e6823350cdac9f3:0x1409a4af1156dfc1!8m2!3d-7.1062691!4d106.6739499!16s%2Fg%2F11nx1y1zhb?hl=id-ID&entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D";
@@ -48,7 +49,7 @@ export default function Page() {
             ))}
 
             <p className="wedding-of-label">The Wedding Of</p>
-            <MusicPlayer />
+            <MusicPlayer shouldPlayMusic={shouldPlayMusic} />
 
             {/* Portrait frames */}
             <div className="portraits-row">
@@ -60,7 +61,7 @@ export default function Page() {
 
               <div className="portrait-card groom">
                 <span className="portrait-frame">
-                  <img src="/img/second.jpeg" alt="Portrait Ismail" className="portrait-img" />
+                  <img src="/img/third.jpeg" alt="Portrait Ismail" className="portrait-img" />
                 </span>
               </div>
             </div>
@@ -116,7 +117,13 @@ export default function Page() {
         </div>
 
         {/* ═══ OPEN BUTTON ═══ */}
-        <button className="open-btn" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="open-btn"
+          onClick={() => {
+            setIsOpen((prev) => !prev);
+            setShouldPlayMusic(true);
+          }}
+        >
           {isOpen ? "✦ Tutup Undangan" : "✦ Buka Undangan"}
         </button>
 

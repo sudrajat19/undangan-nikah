@@ -1,21 +1,38 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaPlay, FaPause, FaMusic } from "react-icons/fa";
 
-export default function MusicPlayer() {
+export default function MusicPlayer({ shouldPlayMusic }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const toggleMusic = () => {
+  useEffect(() => {
+    if (!shouldPlayMusic || !audioRef.current) return;
+
+    const playPromise = audioRef.current.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => setIsPlaying(true))
+        .catch((error) => {
+          console.warn("Play request blocked until user interaction:", error);
+        });
+    }
+  }, [shouldPlayMusic]);
+
+  const toggleMusic = useCallback(() => {
     if (!audioRef.current) return;
 
     if (isPlaying) {
       audioRef.current.pause();
+      setIsPlaying(false);
     } else {
-      audioRef.current.play();
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((error) => {
+          console.warn("Play request failed:", error);
+        });
     }
-
-    setIsPlaying(!isPlaying);
-  };
+  }, [isPlaying]);
 
   return (
     <>
@@ -33,7 +50,7 @@ export default function MusicPlayer() {
           </div>
         </div>
 
-        <audio ref={audioRef} loop>
+        <audio ref={audioRef} autoPlay loop>
           <source src="/music/akad.mp3" type="audio/mp3" />
         </audio>
       </div>
