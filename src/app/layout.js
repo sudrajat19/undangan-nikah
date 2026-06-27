@@ -15,7 +15,7 @@ export const metadata = {
   title: "Invites Wedding Website",
   description: "Invites Wedding Website",
   icons: {
-    icon: "img/icon.svg",
+    icon: "/img/icon.svg",
   },
 };
 
