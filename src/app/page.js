@@ -19,7 +19,7 @@ export default function Page() {
   }, [isOpen]);
 
   useEffect(() => {
-    const name = window.location.search.split("name=")[1] || "";
+    const name = window.location.search.split("to=")[1] || "";
     setName(name);
   }, []);
 
