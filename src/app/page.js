@@ -23,7 +23,7 @@ export default function Page() {
     setName(name);
   }, []);
 
-  const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg", "/img/prewed.jpeg"];
+  const prewedPhotos = ["/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47 (1).jpeg", "/img/WhatsApp Image 2026-05-13 at 23.41.47.jpeg"];
 
   return (
     <>
@@ -178,15 +178,15 @@ export default function Page() {
                 <p className="schedule-item-label">AKAD NIKAH</p>
                 <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 05 July 2026</p>
               </div>
-              <p className="schedule-item-time">09.00 – 10.00 WIB</p>
+              <p className="schedule-item-time">09.00 – 11.00 WIB</p>
             </div>
 
             <div className="schedule-item" style={{ borderBottom: "none" }}>
               <div>
                 <p className="schedule-item-label">RESEPSI</p>
-                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Minggu, 05 Juli 2026</p>
+                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 05 July 2026</p>
               </div>
-              <p className="schedule-item-time">10.00 WIB – Selesai</p>
+              <p className="schedule-item-time">11.00 WIB – Selesai</p>
             </div>
           </div>
 
@@ -239,7 +239,7 @@ export default function Page() {
               <div className="prewed-divider">✦ ✦ ✦</div>
             </div>
 
-            <div className="prewed-grid">
+            <div className="prewed-grid ">
               {prewedPhotos.map((src, idx) => (
                 <div key={idx} className={`prewed-item ${idx % 2 === 0 ? "float-up" : "float-down"}`}>
                   <div className="prewed-frame">

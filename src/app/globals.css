@@ -198,10 +198,17 @@ body {
   gap: 14px;
   position: relative;
   z-index: 2;
+  justify-content: center;
 }
 
 .prewed-item {
   position: relative;
+}
+
+.prewed-item:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(400px, 100%);
 }
 
 .prewed-frame {
