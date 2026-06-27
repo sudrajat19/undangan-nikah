@@ -15,7 +15,7 @@ export const metadata = {
   title: "Invites Wedding Website",
   description: "Invites Wedding Website",
   icons: {
-    icon: "/img/icon.svg",
+    icon: "/img/WhatsApp Image 2026-05-13 at 23.41.46.jpeg",
   },
 };
 
