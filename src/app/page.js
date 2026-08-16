@@ -67,7 +67,7 @@ export default function Page() {
             </div>
 
             <h1 className="couple-name">Nida & Ismail</h1>
-            <p className="cover-date">05 Juli 2026</p>
+            <p className="cover-date">17 Agustus 2026</p>
 
             <p className="kepada-label">Kepada Yth Bapak/Ibu</p>
             <div
@@ -176,7 +176,7 @@ export default function Page() {
             <div className="schedule-item">
               <div>
                 <p className="schedule-item-label">AKAD NIKAH</p>
-                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 05 July 2026</p>
+                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 17 August 2026</p>
               </div>
               <p className="schedule-item-time">09.00 – 11.00 WIB</p>
             </div>
@@ -184,7 +184,7 @@ export default function Page() {
             <div className="schedule-item" style={{ borderBottom: "none" }}>
               <div>
                 <p className="schedule-item-label">RESEPSI</p>
-                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 05 July 2026</p>
+                <p style={{ fontSize: "11px", color: "#333", marginTop: "2px", fontStyle: "italic" }}>Sunday, 17 August 2026</p>
               </div>
               <p className="schedule-item-time">11.00 WIB – Selesai</p>
             </div>
@@ -195,18 +195,18 @@ export default function Page() {
               <div className="calendar-header">
                 <div className="day-box">
                   <span className="day-name">Saturday</span>
-                  <h1>4</h1>
+                  <h1>16</h1>
                 </div>
 
                 <div className="day-box active">
                   <span className="day-name">Sunday</span>
-                  <h1>5</h1>
+                  <h1>17</h1>
                   <p className="dday">D-day!!</p>
                 </div>
 
                 <div className="day-box">
                   <span className="day-name">Monday</span>
-                  <h1>6</h1>
+                  <h1>18</h1>
                 </div>
               </div>
 
@@ -214,7 +214,7 @@ export default function Page() {
                 <h2>Wedding intimate party</h2>
 
                 <div className="event-detail">
-                  <p>Sunday, 05 July 2026</p>
+                  <p>Sunday, 17 August 2026</p>
                   <p>08.00 WIB</p>
 
                   <p>
